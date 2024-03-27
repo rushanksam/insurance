@@ -16,5 +16,11 @@
     become : yes
     become_user : root
 
-  - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8081 shubhamkushwah123/insure-me:3.0
+  - name: Run Docker container
+    docker_container:
+      name: insurance_c1
+      image: rushanksam/insurance:1.0
+      state: started
+      detach: true
+      ports:
+        - "8083:8081"
