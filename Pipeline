@@ -33,7 +33,7 @@ pipeline {
     }
      stage('Docker Login & Push') {
       steps {
-        echo 'Docker Login'
+        echo 'Docker Login & Push'
         withCredentials([usernamePassword(credentialsId: 'dockerhublogin', passwordVariable: 'dockerpwd', usernameVariable: 'dockeruser')]) {
          sh 'docker login -u ${dockeruser} -p ${dockerpwd}'
          sh 'docker push rushanksam/insurance:1.0'
