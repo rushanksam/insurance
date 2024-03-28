@@ -31,7 +31,7 @@ pipeline {
                 }
             }
     }
-     stage('Docker Login') {
+     stage('Docker Login & Push') {
       steps {
         echo 'Docker Login'
         withCredentials([usernamePassword(credentialsId: 'dockerhublogin', passwordVariable: 'dockerpwd', usernameVariable: 'dockeruser')]) {
